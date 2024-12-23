@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= artistName %> Songs</title>
+  <style>
+    body {
+    font-family: 'Times New Roman', Times, serif;
+  }
+  h1 {
+    color: #333;
+  }
+  li {
+    margin-bottom: 20px;
+  }
+  img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+  }
+  a {
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    margin-right: 10px;
+  }
+  button{
+    padding-left: 14px;
+  }
+  </style>
+</head>
+<body>
+  <h1><%= artistName %> Songs</h1>
+  <% if (artistSongs.length > 0) { %>
+    <ul>
+      <% for (let i = 0; i < artistSongs.length; i++) { %>
+        <% const song = artistSongs[i]; %>
+        <li><%= song.title %></li>
+      <% } %>
+    </ul>
+  <% } else { %>
+    <p>No songs found for <%= artistName %></p>
+  <% } %>
+  <button><a href="/">Home</a></button>
+</body>
+</html>

@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song List</title>
+  <style>
+  body {
+    font-family: 'Times New Roman', Times, serif;
+  }
+  h1 {
+    color: #333;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    margin-bottom: 20px;
+  }
+  img {
+    width: 100px;
+    height: auto;
+    margin-right: 20px;
+    border: 2px solid black;
+    padding: 5px;
+  }
+  a {
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
+    margin-right: 10px;
+  }
+  #song-info{
+    border: 1px solid black;
+    padding: 10px;
+    width: 500px;
+  }
+  ul li{
+    display: flex;
+    gap: 10px;
+  }
+  button{
+    padding-left: 14px;
+  }
+  </style>
+</head>
+<body>
+  <h1>Song List</h1>
+  <button><a href="/playlist">My Playlist</a></button>
+  <ul>
+    <% for (let i = 0; i < MUSIC.length; i++) { %>
+      <% const song = MUSIC[i]; %>
+      <li>
+        <img src="<%=song.image %>"/>
+        <div id="song-info">
+          <h3><%= song.title %></h3>
+          <p><%= song.artist %></p>
+          <button><a href="/add/<%= i %>">Add To Playlist</a></button>
+          <button><a href="/find/<%= song.artist %>">More Songs by the Artist</a></button>
+        </div>
+      </li>
+    <% } %>
+  </ul>
+ 
+</body>
+</html>
